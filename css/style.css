@@ -1,0 +1,668 @@
+/* ==========================================================================
+   1. VARIÁVEIS E RESET CSS
+   ========================================================================== */
+:root {
+    /* Cores */
+    --primary-color: #0056B3;       /* Azul institucional */
+    --primary-dark: #003D82;        /* Azul escuro (hover) */
+    --accent-color: #25D366;        /* Verde WhatsApp */
+    --accent-dark: #1EBE5D;         /* Verde escuro (hover) */
+    --text-color: #2D3748;          /* Cinza escuro para texto principal */
+    --text-muted: #718096;          /* Cinza médio para textos secundários */
+    --bg-light: #F7FAFC;            /* Fundo suave para alternar seções */
+    --bg-white: #FFFFFF;            /* Fundo branco limpo */
+    --border-color: #E2E8F0;        /* Cor de bordas e divisores */
+    
+    /* Tipografia */
+    --font-main: 'Poppins', system-ui, -apple-system, sans-serif;
+    
+    /* Sombras e Efeitos */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --transition: all 0.3s ease;
+}
+
+/* Reset básico para padronização */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links do menu */
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Layout Utilitários */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.light-bg {
+    background-color: var(--bg-light);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 50px auto;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   2. BOTÕES & COMPONENTES
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #FFF;
+    box-shadow: 0 4px 14px rgba(0, 86, 179, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp, .btn-whatsapp-lg {
+    background-color: var(--accent-color);
+    color: #FFF;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover, .btn-whatsapp-lg:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp-lg {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: #FFF;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: rgba(0, 86, 179, 0.1);
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* ==========================================================================
+   3. HEADER / NAVEGAÇÃO
+   ========================================================================== */
+.header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    padding: 16px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+.logo-text strong {
+    font-weight: 700;
+}
+
+.nav-list {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-list a {
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.nav-list a:hover {
+    color: var(--primary-color);
+}
+
+.btn-mobile-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   4. HERO SECTION
+   ========================================================================== */
+.hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================================================
+   5. SOBRE A EMPRESA
+   ========================================================================== */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+.about-content .lead {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--text-color);
+}
+
+.about-content p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.about-checklist li {
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   6. SERVIÇOS & CARDS
+   ========================================================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--bg-white);
+    padding: 35px 25px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: transparent;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   7. ANTES E DEPOIS & BENEFÍCIOS
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.comparison-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.comparison-card h4 {
+    padding: 16px;
+    text-align: center;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    color: #FFF;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tag-before { background-color: rgba(0, 0, 0, 0.7); }
+.tag-after { background-color: var(--accent-color); }
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.benefit-item {
+    background: var(--bg-white);
+    padding: 30px 20px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.benefit-icon {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.benefit-item h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.benefit-item p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   8. PASSO A PASSO, FAQ E DEPOIMENTOS
+   ========================================================================== */
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.step {
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: #FFF;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.stars {
+    color: #FFC107;
+    margin-bottom: 15px;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.client-info strong {
+    display: block;
+    color: var(--primary-color);
+}
+
+.client-info span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* FAQ Accordion */
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    transition: var(--transition);
+}
+
+.faq-item summary {
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.05rem;
+    color: var(--text-color);
+}
+
+.faq-item p {
+    margin-top: 12px;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   9. FORMULÁRIO DE CONTATO & RODAPÉ
+   ========================================================================== */
+.contact-container {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+}
+
+.contact-details {
+    margin: 25px 0;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+}
+
+.contact-form {
+    background: var(--bg-white);
+    padding: 35px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+}
+
+/* Rodapé */
+.footer {
+    background-color: #1A202C;
+    color: #A0AEC0;
+    padding-top: 60px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.text-white {
+    color: #FFF !important;
+}
+
+.footer-col h4 {
+    color: #FFF;
+    margin-bottom: 20px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul a:hover {
+    color: #FFF;
+}
+
+.footer-bottom {
+    border-top: 1px solid #2D3748;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   GALERIA DE RESULTADOS (PADRONIZADA PELO TAMANHO DA IMAGEM)
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    /* Define colunas adaptáveis para manter os cards bem estruturados */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.gallery-card {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.gallery-image {
+    width: 100%;
+    /* Utiliza Aspect Ratio 4/5 para acompanhar o formato da imagem enviada */
+    aspect-ratio: 4 / 5; 
+    overflow: hidden;
+    background-color: #f3f4f6; /* Cor neutra enquanto a foto carrega */
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    /* Mantém o enquadramento perfeito sem distorcer ou esticar */
+    object-fit: cover; 
+    object-position: center;
+    transition: var(--transition);
+}
+
+.gallery-card:hover .gallery-image img {
+    transform: scale(1.03);
+}
+
+.gallery-info {
+    padding: 20px;
+    background: var(--bg-white);
+}
+
+.gallery-info h3 {
+    font-size: 1.15rem;
+    color: var(--text-color);
+    margin-bottom: 6px;
+}
+
+.gallery-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.developer-credit strong {
+    color: #60A5FA; /* Azul destacado mantendo a identidade visual da marca */
+    font-weight: 600;
+}

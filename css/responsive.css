@@ -1,0 +1,100 @@
+/* ==========================================================================
+   MEDIAS QUERIES - RESPONSIVIDADE
+   ========================================================================== */
+
+/* Dispositivos Tablet e Celulares (Abaixo de 992px) */
+@media (max-width: 992px) {
+    .hero-container,
+    .about-container,
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .about-checklist {
+        text-align: left;
+        display: inline-block;
+    }
+
+    /* Menu Mobile */
+    .btn-mobile-menu {
+        display: block;
+        width: 30px;
+        height: 24px;
+        position: relative;
+    }
+
+    .btn-mobile-menu .hamburger,
+    .btn-mobile-menu .hamburger::before,
+    .btn-mobile-menu .hamburger::after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+        transition: var(--transition);
+        position: absolute;
+    }
+
+    .btn-mobile-menu .hamburger { top: 10px; }
+    .btn-mobile-menu .hamburger::before { top: -8px; }
+    .btn-mobile-menu .hamburger::after { top: 8px; }
+
+    /* Estilização do Menu Suspenso Mobile */
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-white);
+        box-shadow: var(--shadow-md);
+        display: none;
+        padding: 20px 0;
+    }
+
+    .nav.active {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .header-container .btn-whatsapp {
+        display: none; /* Esconde o botão do header em telas pequenas para evitar poluição */
+    }
+}
+
+/* Celulares Padrão (Abaixo de 576px) */
+@media (max-width: 576px) {
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+}
